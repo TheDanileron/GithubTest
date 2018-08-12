@@ -5,13 +5,16 @@ public class Worker extends Thread {
     private String name;
     private int skillLevel;
     private Work work;
+    private Account account;
     private BlockingQueue<Work> queue;
 
-    public Worker(String name, int skillLevel, Work work, BlockingQueue<Work> queue) {
+    public Worker(String name, int skillLevel, Work work, BlockingQueue<Work> queue, Account account) {
         this.name = name;
         this.skillLevel = skillLevel;
         this.work = work;
         this.queue = queue;
+        this.account = account;
+        account.setWorker(this);
     }
 
 
@@ -31,6 +34,7 @@ public class Worker extends Thread {
             }
         }
         System.out.println("Worker " + this.getWorkerName() + " done his job " + work.toString());
+        account.deposit(work.getHardness() * 100);
         try {
             queue.put(work);
         } catch (InterruptedException e) {
@@ -52,5 +56,17 @@ public class Worker extends Thread {
 
     public void setSkillLevel(int skillLevel) {
         this.skillLevel = skillLevel;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    @Override
+    public String toString() {
+        return "Worker{" +
+                "name='" + name + '\'' +
+                ", skillLevel=" + skillLevel +
+                '}';
     }
 }

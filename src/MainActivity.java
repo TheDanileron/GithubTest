@@ -10,8 +10,8 @@ public class MainActivity {
         Work easyWork = new Work(6);
         Work hardWork = new Work(20);
 
-        Worker bill = new Worker("Bill", 2, easyWork, doneWorkQueue);
-        Worker jill = new Worker("Jill", 4, hardWork, doneWorkQueue);
+        Worker bill = new Worker("Bill", 2, easyWork, doneWorkQueue, new Account());
+        Worker jill = new Worker("Jill", 4, hardWork, doneWorkQueue, new Account());
 
         bill.start();
         jill.start();
@@ -20,5 +20,7 @@ public class MainActivity {
         bill.join();
 
         System.out.println(doneWorkQueue);
+        System.out.println(bill.getAccount().toString());
+        System.out.println(jill.getAccount().toString());
     }
 }

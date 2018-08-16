@@ -2,7 +2,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class MainActivity {
-    //Simple thread System
+    //Simple test thread System
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello, app is working");
 

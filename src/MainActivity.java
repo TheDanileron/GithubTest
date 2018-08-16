@@ -3,6 +3,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 public class MainActivity {
     //Simple test thread System
+    // HAHAHA
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello, app is working");
 
